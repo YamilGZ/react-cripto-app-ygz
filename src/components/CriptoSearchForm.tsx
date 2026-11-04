@@ -8,7 +8,7 @@ export default function CriptoSearchForm() {
 
     const cryptocurrencies = useCryptoStore((state) => state.cryptocurrencies)
     const fetchData = useCryptoStore((state) => state.fetchData)
-    
+
     const [ pair, setPair ] = useState<Pair>({
         currency: '',
         criptocurrency: '',
@@ -36,15 +36,15 @@ export default function CriptoSearchForm() {
     }
 
   return (
-    <form 
+    <form
         onSubmit={handleSubmit}
         className="form"
     >
-        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {error && <ErrorMessage onClose={() => setError('')}>{error}</ErrorMessage>}
         <div className="field">
             <label htmlFor="currency">Moneda:</label>
-            <select 
-                name="currency" 
+            <select
+                name="currency"
                 id="currency"
                 onChange={handleChange}
                 value={pair.currency}
@@ -58,18 +58,18 @@ export default function CriptoSearchForm() {
 
         <div className="field">
             <label htmlFor="criptocurrency">Criptomoneda:</label>
-            <select 
-                name="criptocurrency" 
+            <select
+                name="criptocurrency"
                 id="criptocurrency"
                 onChange={handleChange}
                 value={pair.criptocurrency}
             >
                 <option value="">-- Seleccione --</option>
                 {cryptocurrencies.map( crypto => (
-                    <option 
-                        key={crypto.CoinInfo.FullName}
-                        value={crypto.CoinInfo.Name}
-                    >{crypto.CoinInfo.FullName}</option>
+                    <option
+                        key={crypto.id}
+                        value={crypto.id}
+                    >{`${crypto.name} (${crypto.symbol.toUpperCase()})`}</option>
                 ))}
             </select>
         </div>

@@ -81,10 +81,15 @@ body {
   display: grid;
   grid-template-columns: 1fr 3fr;
   align-items: center;
-  gap: 1rem;
+  gap: 3rem;
 }
 .result img {
   width: 100%;
+  max-width: 12rem;
+  margin: 0 auto;
+}
+.result > div {
+  text-align: center;
 }
 .result p {
   margin: 0 0 1rem;
@@ -92,4 +97,26 @@ body {
 }
 .result span {
   font-weight: 700;
+}
+.result .crypto-name {
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.result .alza {
+  color: #0CB387;
+}
+.result .baja {
+  color: #FF4500;
+}
+
+.error-message {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }

@@ -14,12 +14,16 @@ type CryptoStore = {
 export const useCryptoStore = create<CryptoStore>()(devtools((set) => ({
     cryptocurrencies: [],
     result: {
-        IMAGEURL : '',
-        PRICE: '',
-        HIGHDAY: '',
-        LOWDAY: '',
-        CHANGEPCT24HOUR: '',
-        LASTUPDATE: ''
+        id: '',
+        symbol: '',
+        name: '',
+        image: '',
+        currency: '',
+        current_price: 0,
+        high_24h: 0,
+        low_24h: 0,
+        price_change_percentage_24h: 0,
+        last_updated: ''
     },
     loading: false,
     fetchCryptos: async () => {

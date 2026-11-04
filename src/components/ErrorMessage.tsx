@@ -1,8 +1,22 @@
+import { useEffect } from "react";
 
-export default function ErrorMessage({children} : {children : React.ReactNode}) {
+interface ErrorMessageProps {
+  children: React.ReactNode;
+  onClose?: () => void;
+}
+
+export default function ErrorMessage({ children, onClose }: ErrorMessageProps) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onClose?.();
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
   return (
-    <div>
+    <div className="error-message">
       {children}
     </div>
-  )
+  );
 }
